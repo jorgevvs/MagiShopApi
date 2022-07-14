@@ -1,0 +1,10 @@
+E:\Projects VS\MagicShopApi\MagicShopApi.Domain\bin\Debug\netcoreapp3.1\MagicShop.Common.deps.json
+E:\Projects VS\MagicShopApi\MagicShopApi.Domain\bin\Debug\netcoreapp3.1\MagicShop.Common.dll
+E:\Projects VS\MagicShopApi\MagicShopApi.Domain\bin\Debug\netcoreapp3.1\MagicShop.Common.pdb
+E:\Projects VS\MagicShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\MagicShop.Common.csproj.AssemblyReference.cache
+E:\Projects VS\MagicShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\MagicShop.Common.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projects VS\MagicShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\MagicShop.Common.AssemblyInfoInputs.cache
+E:\Projects VS\MagicShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\MagicShop.Common.AssemblyInfo.cs
+E:\Projects VS\MagicShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\MagicShop.Common.csproj.CoreCompileInputs.cache
+E:\Projects VS\MagicShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\MagicShop.Common.dll
+E:\Projects VS\MagicShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\MagicShop.Common.pdb
