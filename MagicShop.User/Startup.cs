@@ -1,4 +1,8 @@
 using MagicShop.UserAPI.Contexts;
+using MagicShop.UserAPI.Repositories;
+using MagicShop.UserAPI.Repositories.Interfaces;
+using MagicShop.UserAPI.UseCases;
+using MagicShop.UserAPI.UseCases.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +28,9 @@ namespace MagicShop.UserAPI
             services.AddControllers();
             services.AddDbContext<UserContext>(opt => opt.UseInMemoryDatabase("MagicShopUserDB"));
             services.AddMemoryCache();
+            services.AddTransient<IUserRepository, UserRepository>();
+
+            services.AddTransient<IRegisterNewUserUseCase, RegisterNewUserUseCase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

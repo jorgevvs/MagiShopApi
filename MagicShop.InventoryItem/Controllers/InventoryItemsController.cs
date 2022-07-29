@@ -7,6 +7,7 @@ using MagicShop.InventoryItemAPI.Repositories.Interfaces;
 using MagicShopApi.InventoryItemAPI.Repositories;
 using MagicShop.Common.Entities;
 using MagicShop.InventoryItemAPI.Contexts;
+using MagicShop.InventoryItemAPI.UseCases.Interface;
 
 namespace MagicShop.InventoryItemAPI.Controllers
 {
@@ -16,9 +17,9 @@ namespace MagicShop.InventoryItemAPI.Controllers
     {
         private readonly IInventoryItemRepository _inventoryItemRepository;
 
-        public InventoryItemsController(InventoryItemContext context, IMemoryCache cache)
+        public InventoryItemsController(IInventoryItemRepository inventoryItemRepository, InventoryItemContext context, IMemoryCache cache)
         {
-            this._inventoryItemRepository = new InventoryItemRepository(context, cache);
+            _inventoryItemRepository = inventoryItemRepository;
         }
 
         // GET: api/InventoryItems
@@ -33,6 +34,16 @@ namespace MagicShop.InventoryItemAPI.Controllers
         public Task<InventoryItem> GetInventoryItem(int id)
         {
             return _inventoryItemRepository.GetById(id);
+        }
+        
+        //// GET: api/InventoryItems/5
+        [HttpGet("user/{id}")]
+        public Task<IList<InventoryItem>> GetInventoryItemsFromUser(
+            [FromRoute] int id,
+            [FromServices] IReturnAllUserCardsUseCase useCase
+            )
+        {
+            return useCase.Execute(id);
         }
 
         //// PUT: api/InventoryItems/5
@@ -54,7 +65,7 @@ namespace MagicShop.InventoryItemAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!InventoryItemExists(id).Result)
+                if (!await InventoryItemExists(id))
                 {
                     return NotFound();
                 }
@@ -78,6 +89,7 @@ namespace MagicShop.InventoryItemAPI.Controllers
 
             return CreatedAtAction("GetInventoryItem", new { id = inventoryItem.Id }, inventoryItem);
         }
+
 
         //// DELETE: api/InventoryItems/5
         [HttpDelete("{id}")]

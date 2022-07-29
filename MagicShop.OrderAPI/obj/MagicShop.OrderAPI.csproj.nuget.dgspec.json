@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects VS\\MagicShopApi\\MagicShop.OrderAPI\\MagicShop.OrderAPI.csproj": {}
+    "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.OrderAPI\\MagicShop.OrderAPI.csproj": {}
   },
   "projects": {
-    "E:\\Projects VS\\MagicShopApi\\MagicShop.OrderAPI\\MagicShop.OrderAPI.csproj": {
+    "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.OrderAPI\\MagicShop.OrderAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects VS\\MagicShopApi\\MagicShop.OrderAPI\\MagicShop.OrderAPI.csproj",
+        "projectUniqueName": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.OrderAPI\\MagicShop.OrderAPI.csproj",
         "projectName": "MagicShop.OrderAPI",
-        "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShop.OrderAPI\\MagicShop.OrderAPI.csproj",
+        "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.OrderAPI\\MagicShop.OrderAPI.csproj",
         "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects VS\\MagicShopApi\\MagicShop.OrderAPI\\obj\\",
+        "outputPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.OrderAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
-                "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj"
+              "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
+                "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj"
               }
             }
           }
@@ -51,6 +51,14 @@
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[3.1.27, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.14.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             }
           },
           "imports": [
@@ -75,14 +83,14 @@
         }
       }
     },
-    "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
+    "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
+        "projectUniqueName": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
         "projectName": "MagicShop.Common",
-        "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
+        "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
         "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\obj\\",
+        "outputPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",

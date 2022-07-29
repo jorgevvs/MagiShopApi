@@ -1,4 +1,5 @@
 ﻿using MagicShop.Common.Entities;
+using MagicShop.Common.Models.Request;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,5 +12,6 @@ namespace MagicShop.API.Infrastructure.Interfaces
         Task InsertSale(Sale sale);
         Task UpdateSale(Sale sale);
         Task DeleteSale(int saleId);
+        Task MatchSale(PutMatchOrderWithSaleBodyRequest bodyRequest);
     }
 }

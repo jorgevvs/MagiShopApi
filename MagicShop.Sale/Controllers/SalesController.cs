@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MagicShop.Common.Entities;
+using MagicShop.Common.Models.Request;
 using MagicShop.SaleAPI.Contexts;
 using MagicShop.SaleAPI.Repositories;
 using MagicShop.SaleAPI.Repositories.Interfaces;
+using MagicShop.SaleAPI.UseCases;
+using MagicShop.SaleAPI.UseCases.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,9 +20,9 @@ namespace MagicShop.SaleAPI.Controllers
     {
         private readonly ISaleRepository _saleRepository;
 
-        public SalesController(SaleContext context, IMemoryCache cache)
+        public SalesController(SaleContext context, IMemoryCache cache, ISaleRepository saleRepository)
         {
-            _saleRepository = new SaleRepository(context, cache);
+            _saleRepository = saleRepository;
         }
 
         // GET: api/sales
@@ -55,7 +58,7 @@ namespace MagicShop.SaleAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Exists(id).Result)
+                if (!await Exists(id))
                 {
                     return NotFound();
                 }
@@ -99,6 +102,14 @@ namespace MagicShop.SaleAPI.Controllers
         private async Task<bool> Exists(int id)
         {
             return  _saleRepository.Exists(id);
+        }
+
+        [HttpPatch("match")]
+        public async Task MatchSale(
+            [FromBody] PutMatchOrderWithSaleBodyRequest bodyRequest,
+            [FromServices] IMatchSaleWithOrderUseCase useCase)
+        {
+            await useCase.Execute(bodyRequest);
         }
     }
 }

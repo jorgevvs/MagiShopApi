@@ -1,4 +1,8 @@
 using MagicShop.InventoryItemAPI.Contexts;
+using MagicShop.InventoryItemAPI.Repositories.Interfaces;
+using MagicShop.InventoryItemAPI.UseCases;
+using MagicShop.InventoryItemAPI.UseCases.Interface;
+using MagicShopApi.InventoryItemAPI.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +27,9 @@ namespace MagicShop.InventoryItemAPI
             services.AddControllers();
             services.AddDbContext<InventoryItemContext>(opt => opt.UseInMemoryDatabase("MagicShopInventoryItemDB"));
             services.AddMemoryCache();
+
+            services.AddTransient<IInventoryItemRepository, InventoryItemRepository>();
+            services.AddTransient<IReturnAllUserCardsUseCase, ReturnAllUserCardsUseCase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

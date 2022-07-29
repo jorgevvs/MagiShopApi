@@ -2,11 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>1c10f2bf-d794-46b4-82bd-ee9219b9c808</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="4.0.20505" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.26" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.26" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
   </ItemGroup>

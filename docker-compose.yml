@@ -1,0 +1,108 @@
+version: '3.4'
+
+services:
+  magicshop.api:
+    image: ${DOCKER_REGISTRY-}magicshopapi
+    build:
+      context: .
+      dockerfile: MagicShopApi.App/Dockerfile
+    networks:
+      - magicShopNetwork
+      - magicShopInternal
+    ports:
+      - 54000:443
+    depends_on:
+      - ms-sql-server
+      - magicshop.orderapi
+      - magicshop.saleapi
+      - magicshop.inventoryitemapi
+
+  magicshop.cardapi:
+    image: ${DOCKER_REGISTRY-}magicshopcardapi
+    build:
+      context: .
+      dockerfile: MagicShop.Card/Dockerfile
+    networks:
+      - magicShopInternal
+    ports:
+      - 54001:443
+    
+
+  magicshop.inventoryitemapi:
+    image: ${DOCKER_REGISTRY-}magicshopinventoryitemapi
+    build:
+      context: .
+      dockerfile: MagicShop.InventoryItem/Dockerfile
+    networks:
+      - magicShopInternal
+    ports:
+      - 54002:443
+
+
+  magicshop.offerapi:
+    image: ${DOCKER_REGISTRY-}magicshopofferapi
+    build:
+      context: .
+      dockerfile: MagicShop.Offer/Dockerfile
+    networks:
+      - magicShopInternal
+    ports:
+      - 54003:443
+
+
+  magicshop.orderapi:
+    image: ${DOCKER_REGISTRY-}magicshoporderapi
+    build:
+      context: .
+      dockerfile: MagicShop.OrderAPI/Dockerfile
+    networks:
+      - magicShopInternal
+    ports:
+      - 54004:443
+
+
+  magicshop.saleapi:
+    image: ${DOCKER_REGISTRY-}magicshopsaleapi
+    build:
+      context: .
+      dockerfile: MagicShop.Sale/Dockerfile
+    networks:
+      - magicShopInternal
+    ports:
+      - 54005:443
+
+
+  magicshop.userapi:
+    image: ${DOCKER_REGISTRY-}magicshopuserapi
+    build:
+      context: .
+      dockerfile: MagicShop.User/Dockerfile
+    networks:
+      - magicShopInternal
+    ports:
+      - 54006:443
+
+
+  ordermatchsaleworker:
+    image: ${DOCKER_REGISTRY-}ordermatchsaleworker
+    build:
+      context: .
+      dockerfile: OrderMatchSaleWorker/Dockerfile
+    networks:
+      - magicShopInternal
+    depends_on:
+      - magicshop.orderapi
+      - magicshop.saleapi
+      - magicshop.inventoryitemapi
+
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+
+
+
+networks:
+  magicShopNetwork:
+  magicShopInternal:
+  

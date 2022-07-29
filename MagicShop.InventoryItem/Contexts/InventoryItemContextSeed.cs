@@ -15,22 +15,26 @@ namespace MagicShop.InventoryItemAPI.Contexts
                     new InventoryItem
                     {
                         CardId = 1,
-                        UserId = 1
+                        UserId = 1,
+                        Quality = "N"
                     },
                     new InventoryItem
                     {
                         CardId = 1,
-                        UserId = 2
+                        UserId = 2,
+                        Quality = "NM"
                     },
                     new InventoryItem
                     {
                         CardId = 3,
-                        UserId = 1
+                        UserId = 1,
+                        Quality = "NM"
                     },
                     new InventoryItem
                     {
                         CardId = 5,
-                        UserId = 1
+                        UserId = 1,
+                        Quality = "SP"
                     }
                 };
                 context.InventoryItem.AddRange(InventoryItems);

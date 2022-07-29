@@ -33,6 +33,7 @@
         "dependencies": {
           "MagicShop.API": "1.0.0",
           "MagicShop.Common": "1.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.14.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -307,6 +308,21 @@
           "MagicShop.CardAPI.dll": {}
         }
       },
+      "Microsoft.AspNet.WebApi.Client/4.0.20505": {
+        "dependencies": {
+          "Microsoft.Net.Http": "2.0.20505",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/net40/System.Net.Http.Formatting.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.20505.0"
+          }
+        },
+        "compile": {
+          "lib/net40/System.Net.Http.Formatting.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -530,6 +546,18 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
         }
       },
+      "Microsoft.Net.Http/2.0.20505": {
+        "runtime": {
+          "lib/net40/System.Net.Http.WebRequest.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net40/System.Net.Http.WebRequest.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.14.0": {},
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -627,8 +655,10 @@
       "MagicShop.API/1.0.0": {
         "dependencies": {
           "MagicShop.Common": "1.0.0",
+          "Microsoft.AspNet.WebApi.Client": "4.0.20505",
           "Microsoft.EntityFrameworkCore": "3.1.26",
           "Microsoft.EntityFrameworkCore.InMemory": "3.1.26",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.14.0",
           "Newtonsoft.Json": "13.0.1",
           "System.Net.Http.Json": "6.0.0"
         },
@@ -2251,6 +2281,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Microsoft.AspNet.WebApi.Client/4.0.20505": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-A7/s69xXpCZiqX+FfFJ4srEmZfLEutIMwSfZxD4jJI76/gTbfyl2RUvdFeQTuJuJAN2sBqfeym5ihlPch6JwyQ==",
+      "path": "microsoft.aspnet.webapi.client/4.0.20505",
+      "hashPath": "microsoft.aspnet.webapi.client.4.0.20505.nupkg.sha512"
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
       "serviceable": true,
@@ -2369,6 +2406,20 @@
       "sha512": "sha512-muKJFTVxcBaR+FBHS867moiQpRF17oKMt5vw5MxnnzVh6oq3p0A/PD/A09hZUQ1qAzJb4XGAQYjBdNyB2Vy8tQ==",
       "path": "microsoft.extensions.primitives/3.1.26",
       "hashPath": "microsoft.extensions.primitives.3.1.26.nupkg.sha512"
+    },
+    "Microsoft.Net.Http/2.0.20505": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XRsKQP2XEd/DGLerVsU+T2pKQGTFc9ctWsIVbRblL/y+jT/BUo28aJ5mWN40oAeUwwbpXshAc8uO/LRscWav9A==",
+      "path": "microsoft.net.http/2.0.20505",
+      "hashPath": "microsoft.net.http.2.0.20505.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yORzATlNmCp4kEwkxznLZ3maTaUJc5yTcu3aPufY8Tq4141/bRRWsa91u8I24MR3BTCCJlZO98xuQWB4arlKCw==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.14.0",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",

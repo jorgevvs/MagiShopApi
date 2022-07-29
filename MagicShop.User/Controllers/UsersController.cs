@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using MagicShop.UserAPI.Repositories;
 using MagicShop.UserAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
 using MagicShop.Common.Entities;
 using Microsoft.EntityFrameworkCore;
-using MagicShop.UserAPI.Contexts;
+using MagicShop.UserAPI.UseCases.Interface;
+using MagicShop.Common.Models.Response;
+using MagicShop.Common.Models.Request;
 
 namespace MagicShop.UserAPI
 {
@@ -16,9 +16,9 @@ namespace MagicShop.UserAPI
     {
         private readonly IUserRepository _userRepository;
 
-        public UsersController(UserContext context, IMemoryCache cache)
+        public UsersController(IUserRepository userRepository)
         {
-            _userRepository = new UserRepository(context, cache);
+            _userRepository = userRepository;
         }
 
         // GET: api/users
@@ -54,7 +54,7 @@ namespace MagicShop.UserAPI
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Exists(id).Result)
+                if (!await Exists(id))
                 {
                     return NotFound();
                 }
@@ -71,12 +71,14 @@ namespace MagicShop.UserAPI
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public async Task<ActionResult<UserResponse>> CreateUserAsync(
+            [FromBody]PostCreateUserBodyRequest requestBody,
+            [FromServices] IRegisterNewUserUseCase useCase
+            )
         {
-            await _userRepository.Insert(user);
-            await _userRepository.Save();
+            var response = await useCase.Execute(requestBody);
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            return response;
         }
 
         // DELETE: api/users/5

@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>7c487749-4eb5-4f04-994a-95a46537180d</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,7 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\Request\" />
+    <Folder Include="Models\Response\" />
     <Folder Include="UseCases\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
   </ItemGroup>
 
 

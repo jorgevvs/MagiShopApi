@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.Extensions.Caching.Memory;
 using System.Linq;
-using System.Threading.Tasks;
 using MagicShop.Common.Entities;
 using MagicShop.UserAPI.Repositories.Interfaces;
 using MagicShop.UserAPI.Contexts;
+using MagicShop.Common.Models.Response;
 
 namespace MagicShop.UserAPI.Repositories
 {
@@ -23,6 +19,9 @@ namespace MagicShop.UserAPI.Repositories
             return _context.User.Any(x => x.Id == userId);
         }
 
-        
+        public UserResponse UserToResponse(User user)
+        {
+            return new UserResponse() { Name = user.Name, Id= user.Id };
+        }
     }
 }

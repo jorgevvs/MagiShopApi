@@ -1,5 +1,6 @@
 ﻿using MagicShop.API.Infrastructure.Interfaces;
 using MagicShop.Common.Entities;
+using MagicShop.Common.Models.Request;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -42,6 +43,12 @@ namespace MagicShop.API.Controllers
         public async Task UpdateSale(Sale sale)
         {
             await _salesRepository.UpdateSale(sale);
+        }
+
+        [HttpPatch("match")]
+        public async Task MatchSale([FromBody] PutMatchOrderWithSaleBodyRequest bodyRequest)
+        {
+            await _salesRepository.MatchSale(bodyRequest);
         }
     }
 }

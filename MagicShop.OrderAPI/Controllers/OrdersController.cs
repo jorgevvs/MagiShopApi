@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MagicShop.Common.Entities;
-using MagicShop.OrderAPI.Contexts;
-using MagicShop.OrderAPI.Repositories;
-using MagicShop.SaleAPI.Repositories.Interfaces;
+using MagicShop.Common.Models.Request;
+using MagicShop.Common.Models.Response;
+using MagicShop.OrderAPI.Repositories.Interfaces;
+using MagicShop.OrderAPI.UseCases.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
-using Microsoft.Extensions.Caching.Memory;
 
 namespace MagicShop.OrderAPI.Controllers
 {
@@ -17,14 +16,14 @@ namespace MagicShop.OrderAPI.Controllers
     {
         private readonly IOrderRepository _orderRepository;
 
-        public OrdersController(OrderContext context, IMemoryCache cache)
+        public OrdersController(IOrderRepository repo)
         {
-            _orderRepository = new OrderRepository(context, cache);
+            _orderRepository = repo;
         }
 
         // GET: api/sales
         [HttpGet]
-        public Task<IEnumerable<Order>> GetSale()
+        public Task<IEnumerable<Order>> GetOrder()
         {
             return _orderRepository.GetAll();
         }
@@ -40,7 +39,7 @@ namespace MagicShop.OrderAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSale(int id, Order order)
+        public async Task<IActionResult> PutOrder(int id, Order order)
         {
             if (id != order.Id)
             {
@@ -55,7 +54,7 @@ namespace MagicShop.OrderAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Exists(id).Result)
+                if (!await Exists(id))
                 {
                     return NotFound();
                 }
@@ -72,12 +71,12 @@ namespace MagicShop.OrderAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Order>> PostSale(Order order)
+        public async Task<ActionResult<OrderResponse>> CreateNewOrderAsync(
+            [FromBody] PostCreateOrderBodyRequest bodyRequest,
+            [FromServices] ICreateNewOrderUseCase useCase)
         {
-            await _orderRepository.Insert(order);
-            await _orderRepository.Save();
-
-            return CreatedAtAction("GetSale", new { id = order.Id }, order);
+            var response = await useCase.Execute(bodyRequest);
+            return response;
         }
 
         // DELETE: api/sales/5
@@ -96,9 +95,25 @@ namespace MagicShop.OrderAPI.Controllers
             return NoContent();
         }
 
+        [HttpPatch]
+        public async Task OrderCompletion(
+            [FromBody] PutOrderCompletedBodyRequest bodyRequest,
+            [FromServices] IOrderCompletedUseCase useCase)
+        {
+            await useCase.Execute(bodyRequest);
+        }
+
         private async Task<bool> Exists(int id)
         {
             return _orderRepository.Exists(id);
+        }
+
+        [HttpPatch("match")]
+        public async Task OrderMatch(
+            [FromBody] PutMatchOrderWithSaleBodyRequest bodyRequest,
+            [FromServices] IMatchOrderWithSaleUseCase useCase)
+        {
+            await useCase.Execute(bodyRequest);
         }
     }
 }

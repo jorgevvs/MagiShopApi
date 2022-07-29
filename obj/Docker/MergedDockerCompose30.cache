@@ -1,0 +1,222 @@
+name: dockercompose7581752991073787471
+services:
+  magicshop.api:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShopApi.App/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: magicshopapi
+    networks:
+      magicShopInternal: null
+      magicShopNetwork: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54000
+      published: "54000"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+  magicshop.cardapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.Card/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: magicshopcardapi
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54001
+      published: "54001"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+  magicshop.inventoryitemapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.InventoryItem/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: magicshopinventoryitemapi
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54002
+      published: "54002"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+  magicshop.offerapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.Offer/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: magicshopofferapi
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54003
+      published: "54003"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+  magicshop.orderapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.OrderAPI/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: magicshoporderapi
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54004
+      published: "54004"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+  magicshop.saleapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.Sale/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: magicshopsaleapi
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54005
+      published: "54005"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+  magicshop.userapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.User/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: magicshopuserapi
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54006
+      published: "54006"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+  ordermatchsaleworker:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: OrderMatchSaleWorker/Dockerfile
+    image: ordermatchsaleworker
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 54007
+      published: "54007"
+      protocol: tcp
+networks:
+  magicShopInternal:
+    name: dockercompose7581752991073787471_magicShopInternal
+  magicShopNetwork:
+    name: dockercompose7581752991073787471_magicShopNetwork

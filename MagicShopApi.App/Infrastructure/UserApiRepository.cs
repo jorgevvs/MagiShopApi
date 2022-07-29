@@ -1,5 +1,6 @@
 ﻿using MagicShop.API.Infrastructure.Interfaces;
 using MagicShop.Common.Entities;
+using MagicShop.Common.Models.Response;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -14,15 +15,16 @@ namespace MagicShop.API.Infrastructure
 
         public UserApiRepository()
         {
-            var httpclient = new HttpClient();
-            httpclient.BaseAddress = new System.Uri("https://localhost:44390/api/users/");
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            var httpclient = new HttpClient(clientHandler);
+            httpclient.BaseAddress = new System.Uri("https://host.docker.internal:54006/api/users/");
             _httpclient = httpclient;
         }
         public async Task DeleteUser(int userId)
         {
             await _httpclient.DeleteAsync($"{userId}");
         }
-
         public async Task<User> GetUserById(int userId)
         {
             var result = await _httpclient.GetAsync($"{userId}");
@@ -36,13 +38,14 @@ namespace MagicShop.API.Infrastructure
             var response = await result.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<IEnumerable<User>>(response);
         }
-        public async Task InsertUser(User user)
+        public async Task<UserResponse> InsertUser(User user)
         {
             var content = JsonConvert.SerializeObject(user);
             var buffer = System.Text.Encoding.UTF8.GetBytes(content);
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            var result = await _httpclient.PostAsync("", byteContent);
+            var result = (await _httpclient.PostAsync("", byteContent));
+            return JsonConvert.DeserializeObject<UserResponse>(await result.Content.ReadAsStringAsync());
         }
         public async Task UpdateUser(User user)
         {
@@ -50,7 +53,7 @@ namespace MagicShop.API.Infrastructure
             var buffer = System.Text.Encoding.UTF8.GetBytes(content);
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            var result = await _httpclient.PutAsync($"{user.Id}", byteContent);
+            await _httpclient.PutAsync($"{user.Id}", byteContent);
         }
     }
 }

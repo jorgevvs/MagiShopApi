@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mGQbwLrXDj4ABF3URjrLOGnwqMPTAlxFTMqSCQatQUonlsF0vJAdOvxaZ0HycYaXwvN0WG4GF+EyYQrcuDt9zw==",
+  "dgSpecHash": "MhrEC6j/ssNuz5QA6elExyPk9Gz/TgFkg4E1MuXiNuK1YNreE+EDcGafGNKNmopUbdsvluBP2Eu372q0K/CMCA==",
   "success": true,
-  "projectFilePath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
+  "projectFilePath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

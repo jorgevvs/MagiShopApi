@@ -1,5 +1,7 @@
 ﻿using MagicShop.API.Infrastructure.Interfaces;
 using MagicShop.Common.Entities;
+using MagicShop.Common.Models.Request;
+using MagicShop.Common.Models.Response;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -14,8 +16,10 @@ namespace MagicShop.API.Infrastructure
 
         public OrderApiRepository()
         {
-            var httpclient = new HttpClient();
-            httpclient.BaseAddress = new System.Uri("https://localhost:44318/api/orders/");
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            var httpclient = new HttpClient(clientHandler);
+            httpclient.BaseAddress = new System.Uri("https://host.docker.internal:54004/api/orders/");
             _httpclient = httpclient;
         }
         public async Task DeleteOrder(int orderId)
@@ -36,13 +40,14 @@ namespace MagicShop.API.Infrastructure
             var response = await result.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<IEnumerable<Order>>(response);
         }
-        public async Task InsertOrder(Order order)
+        public async Task<OrderResponse> InsertOrder(Order order)
         {
             var content = JsonConvert.SerializeObject(order);
             var buffer = System.Text.Encoding.UTF8.GetBytes(content);
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var result = await _httpclient.PostAsync("", byteContent);
+            return JsonConvert.DeserializeObject<OrderResponse>(await result.Content.ReadAsStringAsync());
         }
         public async Task UpdateOrder(Order order)
         {
@@ -51,6 +56,24 @@ namespace MagicShop.API.Infrastructure
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var result = await _httpclient.PutAsync($"{order.Id}", byteContent);
+        }
+
+        public async Task CompleteOrder(PutOrderCompletedBodyRequest bodyRequest)
+        {
+            var content = JsonConvert.SerializeObject(bodyRequest);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(content);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await _httpclient.PatchAsync($"", byteContent);
+        }
+
+        public async Task OrderMatch(PutMatchOrderWithSaleBodyRequest bodyRequest)
+        {
+            var content = JsonConvert.SerializeObject(bodyRequest);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(content);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await _httpclient.PatchAsync($"match", byteContent);
         }
     }
 }

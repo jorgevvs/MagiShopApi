@@ -23,6 +23,12 @@ namespace MagicShop.SaleAPI.Repositories
         {
             return _context.Sale.Any(x => x.Id == saleId);
         }
+        public async Task CompleteSale(int saleId)
+        {
+            Sale sale = _context.Sale.Find(saleId);
+            sale.IsCompleted = true;
+            await Update(sale);
+        }
 
     }
 }

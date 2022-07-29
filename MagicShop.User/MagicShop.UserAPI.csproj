@@ -2,14 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>b073c9cb-97a0-44aa-a1ce-6b978e59ef50</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MagicShopApi.App\MagicShop.API.csproj" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Request\" />
+    <ProjectReference Include="..\MagicShopApi.App\MagicShop.API.csproj" />
   </ItemGroup>
 
 

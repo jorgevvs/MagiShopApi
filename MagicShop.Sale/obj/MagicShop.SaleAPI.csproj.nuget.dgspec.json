@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects VS\\MagicShopApi\\MagicShop.Sale\\MagicShop.SaleAPI.csproj": {}
+    "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.Sale\\MagicShop.SaleAPI.csproj": {}
   },
   "projects": {
-    "E:\\Projects VS\\MagicShopApi\\MagicShop.Card\\MagicShop.CardAPI.csproj": {
+    "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.Card\\MagicShop.CardAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects VS\\MagicShopApi\\MagicShop.Card\\MagicShop.CardAPI.csproj",
+        "projectUniqueName": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.Card\\MagicShop.CardAPI.csproj",
         "projectName": "MagicShop.CardAPI",
-        "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShop.Card\\MagicShop.CardAPI.csproj",
+        "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.Card\\MagicShop.CardAPI.csproj",
         "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects VS\\MagicShopApi\\MagicShop.Card\\obj\\",
+        "outputPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.Card\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,203 +28,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\Projects VS\\MagicShopApi\\MagicShopApi.App\\MagicShop.API.csproj": {
-                "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.App\\MagicShop.API.csproj"
+              "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.App\\MagicShop.API.csproj": {
+                "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.App\\MagicShop.API.csproj"
               },
-              "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
-                "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "E:\\Projects VS\\MagicShopApi\\MagicShop.Sale\\MagicShop.SaleAPI.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "E:\\Projects VS\\MagicShopApi\\MagicShop.Sale\\MagicShop.SaleAPI.csproj",
-        "projectName": "MagicShop.SaleAPI",
-        "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShop.Sale\\MagicShop.SaleAPI.csproj",
-        "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects VS\\MagicShopApi\\MagicShop.Sale\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
-            "projectReferences": {
-              "E:\\Projects VS\\MagicShopApi\\MagicShop.Card\\MagicShop.CardAPI.csproj": {
-                "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShop.Card\\MagicShop.CardAPI.csproj"
-              },
-              "E:\\Projects VS\\MagicShopApi\\MagicShop.User\\MagicShop.UserAPI.csproj": {
-                "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShop.User\\MagicShop.UserAPI.csproj"
-              },
-              "E:\\Projects VS\\MagicShopApi\\MagicShopApi.App\\MagicShop.API.csproj": {
-                "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.App\\MagicShop.API.csproj"
-              },
-              "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
-                "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "E:\\Projects VS\\MagicShopApi\\MagicShop.User\\MagicShop.UserAPI.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "E:\\Projects VS\\MagicShopApi\\MagicShop.User\\MagicShop.UserAPI.csproj",
-        "projectName": "MagicShop.UserAPI",
-        "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShop.User\\MagicShop.UserAPI.csproj",
-        "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects VS\\MagicShopApi\\MagicShop.User\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
-            "projectReferences": {
-              "E:\\Projects VS\\MagicShopApi\\MagicShopApi.App\\MagicShop.API.csproj": {
-                "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.App\\MagicShop.API.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "E:\\Projects VS\\MagicShopApi\\MagicShopApi.App\\MagicShop.API.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.App\\MagicShop.API.csproj",
-        "projectName": "MagicShop.API",
-        "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.App\\MagicShop.API.csproj",
-        "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.App\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
-            "projectReferences": {
-              "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
-                "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj"
+              "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
+                "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj"
               }
             }
           }
@@ -239,6 +47,220 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.14.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.Sale\\MagicShop.SaleAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.Sale\\MagicShop.SaleAPI.csproj",
+        "projectName": "MagicShop.SaleAPI",
+        "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.Sale\\MagicShop.SaleAPI.csproj",
+        "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.Sale\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.Card\\MagicShop.CardAPI.csproj": {
+                "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.Card\\MagicShop.CardAPI.csproj"
+              },
+              "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.User\\MagicShop.UserAPI.csproj": {
+                "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.User\\MagicShop.UserAPI.csproj"
+              },
+              "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.App\\MagicShop.API.csproj": {
+                "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.App\\MagicShop.API.csproj"
+              },
+              "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
+                "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.14.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.User\\MagicShop.UserAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.User\\MagicShop.UserAPI.csproj",
+        "projectName": "MagicShop.UserAPI",
+        "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.User\\MagicShop.UserAPI.csproj",
+        "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.User\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.App\\MagicShop.API.csproj": {
+                "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.App\\MagicShop.API.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.14.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.App\\MagicShop.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.App\\MagicShop.API.csproj",
+        "projectName": "MagicShop.API",
+        "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.App\\MagicShop.API.csproj",
+        "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.App\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
+                "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[4.0.20505, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.26, )"
@@ -246,6 +268,10 @@
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[3.1.26, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.14.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -278,14 +304,14 @@
         }
       }
     },
-    "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
+    "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
+        "projectUniqueName": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
         "projectName": "MagicShop.Common",
-        "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
+        "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
         "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\obj\\",
+        "outputPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",

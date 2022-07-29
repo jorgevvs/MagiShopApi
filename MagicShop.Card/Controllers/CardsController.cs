@@ -54,7 +54,7 @@ namespace MagicShop.CardAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CardExists(id).Result)
+                if (!await CardExists(id))
                 {
                     return NotFound();
                 }

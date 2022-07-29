@@ -1,5 +1,6 @@
 ﻿using MagicShop.API.Infrastructure.Interfaces;
 using MagicShop.Common.Entities;
+using MagicShop.Common.Models.Response;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -33,9 +34,9 @@ namespace MagicShop.API.Controllers
             return await _usersRepository.GetUsers();
         }
         [HttpPost]
-        public void InsertUser([FromBody] User user)
+        public async Task<UserResponse> InsertUser([FromBody] User user)
         {
-            _usersRepository.InsertUser(user);
+            return await _usersRepository.InsertUser(user);
         }
 
         [HttpPut]

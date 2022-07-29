@@ -1,5 +1,7 @@
 ﻿using MagicShop.API.Infrastructure.Interfaces;
 using MagicShop.Common.Entities;
+using MagicShop.Common.Models.Request;
+using MagicShop.Common.Models.Response;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -33,15 +35,28 @@ namespace MagicShop.API.Controllers
             return await _ordersRepository.GetOrders();
         }
         [HttpPost]
-        public async Task InsertOrder([FromBody] Order order)
+        public async Task<OrderResponse> InsertOrder([FromBody] Order order)
         {
-            await _ordersRepository.InsertOrder(order);
+            return await _ordersRepository.InsertOrder(order);
         }
 
         [HttpPut]
         public async Task UpdateOrder(Order order)
         {
             await _ordersRepository.UpdateOrder(order);
+        }
+
+        [HttpPatch]
+        public async Task CompleteOrder(
+            [FromBody] PutOrderCompletedBodyRequest bodyRequest)
+        {
+            await _ordersRepository.CompleteOrder(bodyRequest);
+        }
+
+        [HttpPatch("match")]
+        public async Task MatchOrder( [FromBody] PutMatchOrderWithSaleBodyRequest bodyRequest)
+        {
+            await _ordersRepository.OrderMatch(bodyRequest);
         }
     }
 }

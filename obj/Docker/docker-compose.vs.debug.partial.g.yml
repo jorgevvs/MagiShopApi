@@ -1,0 +1,219 @@
+version: '3.4'
+
+services:
+  magicshop.api:
+    image: magicshopapi:dev
+    container_name: MagicShop.API_1
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MagicShop.API"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\jorge\Desktop\MagiShopApi\MagicShopApi.App:/app
+      - C:\Users\jorge\Desktop\MagiShopApi:/src
+      - C:\Users\jorge\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\jorge\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/netcoreapp3.1/MagicShop.API.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+  magicshop.cardapi:
+    image: magicshopcardapi:dev
+    container_name: MagicShop.CardAPI
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MagicShop.CardAPI"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\jorge\Desktop\MagiShopApi\MagicShop.Card:/app
+      - C:\Users\jorge\Desktop\MagiShopApi:/src
+      - C:\Users\jorge\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\jorge\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/netcoreapp3.1/MagicShop.CardAPI.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  magicshop.inventoryitemapi:
+    image: magicshopinventoryitemapi:dev
+    container_name: MagicShop.InventoryItemAPI
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MagicShop.InventoryItemAPI"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\jorge\Desktop\MagiShopApi\MagicShop.InventoryItem:/app
+      - C:\Users\jorge\Desktop\MagiShopApi:/src
+      - C:\Users\jorge\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\jorge\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/netcoreapp3.1/MagicShop.InventoryItemAPI.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  magicshop.offerapi:
+    image: magicshopofferapi:dev
+    container_name: MagicShop.OfferAPI
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MagicShop.OfferAPI"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\jorge\Desktop\MagiShopApi\MagicShop.Offer:/app
+      - C:\Users\jorge\Desktop\MagiShopApi:/src
+      - C:\Users\jorge\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\jorge\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/netcoreapp3.1/MagicShop.OfferAPI.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  magicshop.orderapi:
+    image: magicshoporderapi:dev
+    container_name: MagicShop.OrderAPI
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MagicShop.OrderAPI"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\jorge\Desktop\MagiShopApi\MagicShop.OrderAPI:/app
+      - C:\Users\jorge\Desktop\MagiShopApi:/src
+      - C:\Users\jorge\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\jorge\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/netcoreapp3.1/MagicShop.OrderAPI.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  magicshop.saleapi:
+    image: magicshopsaleapi:dev
+    container_name: MagicShop.SaleAPI
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MagicShop.SaleAPI"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\jorge\Desktop\MagiShopApi\MagicShop.Sale:/app
+      - C:\Users\jorge\Desktop\MagiShopApi:/src
+      - C:\Users\jorge\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\jorge\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/netcoreapp3.1/MagicShop.SaleAPI.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  magicshop.userapi:
+    image: magicshopuserapi:dev
+    container_name: MagicShop.UserAPI
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MagicShop.UserAPI"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\jorge\Desktop\MagiShopApi\MagicShop.User:/app
+      - C:\Users\jorge\Desktop\MagiShopApi:/src
+      - C:\Users\jorge\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\jorge\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/netcoreapp3.1/MagicShop.UserAPI.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  ordermatchsaleworker:
+    image: ordermatchsaleworker:dev
+    container_name: OrderMatchSaleWorker
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "OrderMatchSaleWorker"
+    environment:
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\jorge\Desktop\MagiShopApi\OrderMatchSaleWorker:/app
+      - C:\Users\jorge\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\jorge\.nuget\packages\:/root/.nuget/packages:ro
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/netcoreapp3.1/OrderMatchSaleWorker.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true

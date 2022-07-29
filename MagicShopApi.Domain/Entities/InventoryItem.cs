@@ -7,5 +7,6 @@ namespace MagicShop.Common.Entities
         public int Id { get; set; }
         public int CardId { get; set; }
         public int UserId { get; set; }
+        public string Quality { get; set; }
     }
 }

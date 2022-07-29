@@ -14,8 +14,10 @@ namespace MagicShop.API.Infrastructure
 
         public OfferApiRepository()
         {
-            var httpclient = new HttpClient();
-            httpclient.BaseAddress = new System.Uri("https://localhost:44302/api/offers/");
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            var httpclient = new HttpClient(clientHandler);
+            httpclient.BaseAddress = new System.Uri("https://host.docker.internal:54003/api/offers/");
             _httpclient = httpclient;
         }
         public async Task DeleteOffer(int offerId)

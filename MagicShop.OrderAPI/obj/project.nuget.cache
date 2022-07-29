@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pVIwSEqECpOhZn8GTHTAz0h1bTz88RqrMiiglSjFdIVj7zKj+R+nVoJ95wM8kw0s7LzHTyowyYmJvirr8AfPVQ==",
+  "dgSpecHash": "ClEFu5N4j4H/R5FVnBKppOT44tG00dqytX/CeVWgyeiFhajDMl00WjqEwpjkDkFAe5tGsVtM22xfn3eOn8U/Rg==",
   "success": true,
-  "projectFilePath": "E:\\Projects VS\\MagicShopApi\\MagicShop.OrderAPI\\MagicShop.OrderAPI.csproj",
+  "projectFilePath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShop.OrderAPI\\MagicShop.OrderAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jorge\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\jorge\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
@@ -21,6 +21,8 @@
     "C:\\Users\\jorge\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.27\\microsoft.extensions.logging.abstractions.3.1.27.nupkg.sha512",
     "C:\\Users\\jorge\\.nuget\\packages\\microsoft.extensions.options\\3.1.27\\microsoft.extensions.options.3.1.27.nupkg.sha512",
     "C:\\Users\\jorge\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.27\\microsoft.extensions.primitives.3.1.27.nupkg.sha512",
+    "C:\\Users\\jorge\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512",
+    "C:\\Users\\jorge\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\jorge\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512",
     "C:\\Users\\jorge\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "C:\\Users\\jorge\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"

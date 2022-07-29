@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
+      "projectUniqueName": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
       "projectName": "MagicShop.Common",
-      "projectPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
+      "projectPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\MagicShop.Common.csproj",
       "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects VS\\MagicShopApi\\MagicShopApi.Domain\\obj\\",
+      "outputPath": "C:\\Users\\jorge\\Desktop\\MagiShopApi\\MagicShopApi.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",

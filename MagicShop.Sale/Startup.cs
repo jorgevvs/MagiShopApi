@@ -1,4 +1,8 @@
 using MagicShop.SaleAPI.Contexts;
+using MagicShop.SaleAPI.Repositories;
+using MagicShop.SaleAPI.Repositories.Interfaces;
+using MagicShop.SaleAPI.UseCases;
+using MagicShop.SaleAPI.UseCases.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +28,9 @@ namespace MagicShop.SaleAPI
             services.AddControllers();
             services.AddDbContext<SaleContext>(opt => opt.UseInMemoryDatabase("MagicShopSaleDB"));
             services.AddMemoryCache();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ISaleRepository, SaleRepository>();
+            services.AddTransient<IMatchSaleWithOrderUseCase, MatchSaleWithOrderUseCase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

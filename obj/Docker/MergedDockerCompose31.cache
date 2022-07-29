@@ -1,0 +1,538 @@
+name: dockercompose7581752991073787471
+services:
+  magicshop.api:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShopApi.App/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MagicShop.API
+      target: base
+    container_name: MagicShop.API_1
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: ""
+    image: magicshopapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/MagicShop.API.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      magicShopInternal: null
+      magicShopNetwork: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54000
+      published: "54000"
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi\MagicShopApi.App
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi
+      target: /src
+      bind:
+        create_host_path: true
+  magicshop.cardapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.Card/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MagicShop.CardAPI
+      target: base
+    container_name: MagicShop.CardAPI
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: ""
+    image: magicshopcardapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/MagicShop.CardAPI.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54001
+      published: "54001"
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi\MagicShop.Card
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi
+      target: /src
+      bind:
+        create_host_path: true
+  magicshop.inventoryitemapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.InventoryItem/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MagicShop.InventoryItemAPI
+      target: base
+    container_name: MagicShop.InventoryItemAPI
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: ""
+    image: magicshopinventoryitemapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/MagicShop.InventoryItemAPI.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54002
+      published: "54002"
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi\MagicShop.InventoryItem
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi
+      target: /src
+      bind:
+        create_host_path: true
+  magicshop.offerapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.Offer/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MagicShop.OfferAPI
+      target: base
+    container_name: MagicShop.OfferAPI
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: ""
+    image: magicshopofferapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/MagicShop.OfferAPI.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54003
+      published: "54003"
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi\MagicShop.Offer
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi
+      target: /src
+      bind:
+        create_host_path: true
+  magicshop.orderapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.OrderAPI/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MagicShop.OrderAPI
+      target: base
+    container_name: MagicShop.OrderAPI
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: ""
+    image: magicshoporderapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/MagicShop.OrderAPI.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54004
+      published: "54004"
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi\MagicShop.OrderAPI
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi
+      target: /src
+      bind:
+        create_host_path: true
+  magicshop.saleapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.Sale/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MagicShop.SaleAPI
+      target: base
+    container_name: MagicShop.SaleAPI
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: ""
+    image: magicshopsaleapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/MagicShop.SaleAPI.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54005
+      published: "54005"
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi\MagicShop.Sale
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi
+      target: /src
+      bind:
+        create_host_path: true
+  magicshop.userapi:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: MagicShop.User/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MagicShop.UserAPI
+      target: base
+    container_name: MagicShop.UserAPI
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: ""
+    image: magicshopuserapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/MagicShop.UserAPI.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 54006
+      published: "54006"
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi\MagicShop.User
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\jorge\Desktop\MagiShopApi
+      target: /src
+      bind:
+        create_host_path: true
+  ordermatchsaleworker:
+    build:
+      context: C:\Users\jorge\Desktop\MagiShopApi
+      dockerfile: OrderMatchSaleWorker/Dockerfile
+    image: ordermatchsaleworker
+    networks:
+      magicShopInternal: null
+    ports:
+    - mode: ingress
+      target: 54007
+      published: "54007"
+      protocol: tcp
+networks:
+  magicShopInternal:
+    name: dockercompose7581752991073787471_magicShopInternal
+  magicShopNetwork:
+    name: dockercompose7581752991073787471_magicShopNetwork

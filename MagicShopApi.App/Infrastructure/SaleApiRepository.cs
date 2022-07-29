@@ -1,5 +1,6 @@
 ﻿using MagicShop.API.Infrastructure.Interfaces;
 using MagicShop.Common.Entities;
+using MagicShop.Common.Models.Request;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -14,8 +15,10 @@ namespace MagicShop.API.Infrastructure
 
         public SaleApiRepository()
         {
-            var httpclient = new HttpClient();
-            httpclient.BaseAddress = new System.Uri("https://localhost:44329/api/sales/");
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            var httpclient = new HttpClient(clientHandler);
+            httpclient.BaseAddress = new System.Uri("https://host.docker.internal:54005/api/sales/");
             _httpclient = httpclient;
         }
         public async Task DeleteSale(int saleId)
@@ -52,5 +55,15 @@ namespace MagicShop.API.Infrastructure
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var result = await _httpclient.PutAsync($"{sale.Id}", byteContent);
         }
+
+        public async Task MatchSale(PutMatchOrderWithSaleBodyRequest bodyRequest)
+        {
+            var content = JsonConvert.SerializeObject(bodyRequest);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(content);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await _httpclient.PutAsync($"match", byteContent);
+        }
     }
 }
+
