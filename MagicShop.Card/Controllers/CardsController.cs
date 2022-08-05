@@ -16,9 +16,9 @@ namespace MagicShop.CardAPI.Controllers
     {
         private readonly ICardRepository _cardRepository;
 
-        public CardsController(CardContext context, IMemoryCache memoryCache)
+        public CardsController(ICardRepository cardRepository)
         {
-            this._cardRepository = new CardRepository(context, memoryCache);
+            _cardRepository = cardRepository;
         }
 
         // GET: api/Cards
@@ -32,7 +32,7 @@ namespace MagicShop.CardAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Card>> GetCard(int id)
         {
-            return await _cardRepository.GetById(id);
+             return await _cardRepository.GetById(id);
         }
 
         //// PUT: api/Cards/5

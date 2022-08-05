@@ -1,14 +1,26 @@
 ﻿using MagicShop.Common.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MagicShop.OrderAPI.Contexts
 {
-    public class OrderContextSeed
+    public static class OrderContextSeed
     {
-        public static void SeedAsync(OrderContext context)
+        public async static void SeedAsync(OrderContext context)
         {
+            try
+            {
+                context.Database.Migrate();
+
+            }
+            catch
+            {
+
+            }
+
             if (!context.Order.Any())
             {
                 var Orders = new List<Order>

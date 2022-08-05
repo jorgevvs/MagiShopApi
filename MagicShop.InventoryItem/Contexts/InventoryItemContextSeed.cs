@@ -1,13 +1,25 @@
 ﻿using MagicShop.Common.Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MagicShop.InventoryItemAPI.Contexts
 {
-    public class InventoryItemContextSeed
+    public static class InventoryItemContextSeed
     {
-        public static void SeedAsync(InventoryItemContext context)
+        public async static void SeedAsync(InventoryItemContext context)
         {
+            try
+            {
+                context.Database.Migrate();
+
+            }
+            catch
+            {
+
+            }
+
             if (!context.InventoryItem.Any())
             {
                 var InventoryItems = new List<InventoryItem>

@@ -2,12 +2,11 @@
 
 namespace MagicShop.Common.Entities
 {
-    public class Card : IBase
+    public class Card : Base
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public decimal Price { get; set; }
         public string Image { get; set; }
-        public string Colection { get; set; }
+        public string Collection { get; set; }
     }
 }

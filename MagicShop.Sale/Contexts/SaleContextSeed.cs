@@ -1,14 +1,25 @@
 ﻿using MagicShop.Common.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MagicShop.SaleAPI.Contexts
 {
     public class SaleContextSeed
     {
-        public static void SeedAsync(SaleContext context)
+        public async static void SeedAsync(SaleContext context)
         {
+            try
+            {
+                context.Database.Migrate();
+            }
+            catch
+            {
+
+            }
+
             if (!context.Sale.Any())
             {
                 var Sales = new List<Sale>

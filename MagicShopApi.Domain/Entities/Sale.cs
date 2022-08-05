@@ -5,9 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MagicShop.Common.Entities
 {
-    public class Sale: IBase
+    public class Sale: Base
     {
-        public int Id { get; set; }
         public int InventoryItemId { get; set; }
         public int UserId { get; set; }
         public decimal RequestedValue { get; set; }

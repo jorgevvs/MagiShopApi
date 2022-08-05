@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using System.Threading.Tasks;
 
 namespace MagicShop.SaleAPI
 {
@@ -23,10 +23,12 @@ namespace MagicShop.SaleAPI
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public async void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
-            services.AddDbContext<SaleContext>(opt => opt.UseInMemoryDatabase("MagicShopSaleDB"));
+            services.AddDbContext<SaleContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("SqlConnection"),
+                x => x.MigrationsAssembly("MagicShop.SaleAPI")));
             services.AddMemoryCache();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<ISaleRepository, SaleRepository>();
@@ -51,6 +53,18 @@ namespace MagicShop.SaleAPI
             {
                 endpoints.MapControllers();
             });
+
+            SeedDatabase(app);
+        }
+
+        private static void SeedDatabase(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var context = services.GetRequiredService<SaleContext>();
+                SaleContextSeed.SeedAsync(context);
+            }
         }
     }
 }

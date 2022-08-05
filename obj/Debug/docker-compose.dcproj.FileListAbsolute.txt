@@ -17,7 +17,6 @@ C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.Extensions.Caching.Memory
 C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Newtonsoft.Json.dll
 C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.EntityFrameworkCore.dll
 C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
-C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.Extensions.Options.dll
 C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
@@ -71,3 +70,6 @@ C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\OrderMatchSaleWorker.dll
 C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.Extensions.Hosting.dll
 C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\OrderMatchSaleWorker.pdb
+C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\jorge\Desktop\MagiShopApi\bin\Debug\Microsoft.Data.SqlClient.dll

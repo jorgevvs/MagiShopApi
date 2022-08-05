@@ -70,6 +70,8 @@ services:
       - magicShopInternal
     ports:
       - 54005:443
+    depends_on:
+      - magicshop.userapi
 
 
   magicshop.userapi:
@@ -96,9 +98,11 @@ services:
       - magicshop.inventoryitemapi
 
   ms-sql-server:
+    hostname: 'sqlserver'
     image: mcr.microsoft.com/mssql/server:2019-latest
     environment:
       - ACCEPT_EULA=Y
+      - SA_PASSWORD=Thermaltake#2022
 
 
 

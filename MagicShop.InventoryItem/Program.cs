@@ -10,19 +10,7 @@ namespace MagicShop.InventoryItemAPI
     {
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args).Build();
-            SeedDatabase(host);
-            host.Run();
-        }
-
-        private static void SeedDatabase(IHost host)
-        {
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                var context = services.GetRequiredService<InventoryItemContext>();
-                InventoryItemContextSeed.SeedAsync(context);
-            }
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

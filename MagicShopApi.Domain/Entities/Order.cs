@@ -3,9 +3,8 @@ using System;
 
 namespace MagicShop.Common.Entities
 {
-    public class Order : IBase
+    public class Order : Base
     {
-        public int Id { get; set; }
         public int CardId { get; set; }
         public int UserId { get; set; }
         public decimal RequestedValue { get; set; }

@@ -18,3 +18,6 @@ C:\Users\jorge\Desktop\MagiShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\M
 C:\Users\jorge\Desktop\MagiShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\MagicShop.Common.csproj.CoreCompileInputs.cache
 C:\Users\jorge\Desktop\MagiShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\MagicShop.Common.dll
 C:\Users\jorge\Desktop\MagiShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\MagicShop.Common.pdb
+C:\Users\jorge\Desktop\MagiShopApi\MagicShopApi.Domain\bin\Debug\netcoreapp3.1\MagicShop.Common.runtimeconfig.json
+C:\Users\jorge\Desktop\MagiShopApi\MagicShopApi.Domain\bin\Debug\netcoreapp3.1\MagicShop.Common.runtimeconfig.dev.json
+C:\Users\jorge\Desktop\MagiShopApi\MagicShopApi.Domain\obj\Debug\netcoreapp3.1\MagicShop.Common.genruntimeconfig.cache

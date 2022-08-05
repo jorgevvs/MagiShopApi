@@ -1,4 +1,6 @@
 using MagicShop.CardAPI.Contexts;
+using MagicShop.CardAPI.Repositories;
+using MagicShop.CardAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -20,9 +22,12 @@ namespace MagicShop.CardAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
-            services.AddDbContext<CardContext>(opt => opt.UseInMemoryDatabase("MagicShopCardDB"));
+            services.AddDbContext<CardContext>(
+                opt => opt.UseSqlServer(Configuration.GetConnectionString("SqlConnection")));
             services.AddMemoryCache();
+            services.AddTransient<ICardRepository, CardRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +48,18 @@ namespace MagicShop.CardAPI
             {
                 endpoints.MapControllers();
             });
+
+            SeedDatabase(app);
+        }
+
+        private static void SeedDatabase(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var context = services.GetRequiredService<CardContext>();
+                CardDbSeed.CardSeed(context);
+            }
         }
     }
 }

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace MagicShop.Common.Entities
 {
-    public class User: IBase
+    public class User: Base
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public decimal Balance { get; set; }
     }

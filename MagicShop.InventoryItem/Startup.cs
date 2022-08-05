@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Threading.Tasks;
 
 namespace MagicShop.InventoryItemAPI
 {
@@ -22,10 +23,12 @@ namespace MagicShop.InventoryItemAPI
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public async void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
-            services.AddDbContext<InventoryItemContext>(opt => opt.UseInMemoryDatabase("MagicShopInventoryItemDB"));
+            services.AddDbContext<InventoryItemContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("SqlConnection"),
+                x => x.MigrationsAssembly("MagicShop.InventoryItemAPI")));
             services.AddMemoryCache();
 
             services.AddTransient<IInventoryItemRepository, InventoryItemRepository>();
@@ -50,6 +53,18 @@ namespace MagicShop.InventoryItemAPI
             {
                 endpoints.MapControllers();
             });
+
+            SeedDatabase(app);
+        }
+
+        private static void SeedDatabase(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var context = services.GetRequiredService<InventoryItemContext>();
+                InventoryItemContextSeed.SeedAsync(context);
+            }
         }
     }
 }

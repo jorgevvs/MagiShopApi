@@ -1,13 +1,25 @@
 ﻿using MagicShop.Common.Entities;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MagicShop.UserAPI.Contexts
 {
-    public class UserContextSeed
+    public static class UserContextSeed
     {
-        public static void SeedAsync(UserContext context)
+        public async static void SeedAsync(UserContext context)
         {
+            try
+            {
+                context.Database.Migrate();
+
+            }
+            catch
+            {
+
+            }
+
             if (!context.User.Any())
             {
                 var users = new List<User>
