@@ -17,7 +17,7 @@ namespace MagicShop.InventoryItemAPI.Controllers
     {
         private readonly IInventoryItemRepository _inventoryItemRepository;
 
-        public InventoryItemsController(IInventoryItemRepository inventoryItemRepository, InventoryItemContext context, IMemoryCache cache)
+        public InventoryItemsController(IInventoryItemRepository inventoryItemRepository)
         {
             _inventoryItemRepository = inventoryItemRepository;
         }
@@ -93,18 +93,10 @@ namespace MagicShop.InventoryItemAPI.Controllers
 
         //// DELETE: api/InventoryItems/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<InventoryItem>> DeleteInventoryItem(int id)
+        public async Task<ActionResult<Void>> DeleteInventoryItem(int id)
         {
-            var inventoryItem = await _inventoryItemRepository.GetById(id);
-            if (inventoryItem == null)
-            {
-                return NotFound();
-            }
-
             await _inventoryItemRepository.Delete(id);
             await _inventoryItemRepository.Save();
-
-            return inventoryItem;
         }
 
         private Task<bool> InventoryItemExists(int id)
