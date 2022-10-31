@@ -11,21 +11,27 @@ namespace OrderMatchSaleWorker.Repositories
 {
     internal class InventoryItemRepository : IInventoryItemRepository
     {
+        private readonly String INVENTORY_ITEMS_API_URI = "https://host.docker.internal:54004/api/inventoryitems";
+    
         private readonly HttpClient _httpclient;
 
-        public InventoryItemRepository()
-        {
-            HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-            var httpclient = new HttpClient(clientHandler);
-            httpclient.BaseAddress = new Uri("https://host.docker.internal:54002/api/inventoryitems/");
-            _httpclient = httpclient;
+        public InventoryItemRepository() {
+            _httpclient = getHttpClient(INVENTORY_ITEMS_API_URI);
         }
+        
         public async Task<InventoryItem> GetInventoryItem(int id)
         {
             var result = await _httpclient.GetAsync($"{id}");
             var response = await result.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<InventoryItem>(response);
+        }
+        
+        private HttpClient getHttpClient(String uri) {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            var httpclient = new HttpClient(clientHandler);
+            httpclient.BaseAddress = new Uri(uri);
+            return httpclient;
         }
     }
 }
