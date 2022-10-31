@@ -14,16 +14,13 @@ namespace OrderMatchSaleWorker.Repositories
 {
     public class OrderRepository : IOrderRepository
     {
+        private readonly String ORDERS_API_URI = "https://host.docker.internal:54004/api/orders";
+        
         private readonly HttpClient _httpclient;
         private readonly ILogger<OrderRepository> _logger;
 
-        public OrderRepository(ILogger<OrderRepository> logger)
-        {
-            HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-            var httpclient = new HttpClient(clientHandler);
-            httpclient.BaseAddress = new Uri("https://host.docker.internal:54004/api/orders/");
-            _httpclient = httpclient;
+        public OrderRepository(ILogger<OrderRepository> logger) {
+            _httpclient = getHttpClient(ORDERS_API_URI);
             _logger = logger;
         }
 
@@ -43,6 +40,14 @@ namespace OrderMatchSaleWorker.Repositories
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var result = await _httpclient.PatchAsync($"match", byteContent);
+        }
+        
+        private HttpClient getHttpClient() {
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            var httpclient = new HttpClient(clientHandler);
+            httpclient.BaseAddress = new Uri(ORDERS_API_URI);
+            return httpclient;
         }
     }
 }
