@@ -39,30 +39,17 @@ namespace MagicShop.UserAPI
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
-        {
-            if (id != user.Id)
-            {
+        public async Task<IActionResult> PutUser(int id, User user) {
+            if (id != user.Id) {
                 return BadRequest();
             }
 
+            if (!await Exists(id)) {
+                return NotFound();
+            }
+                
             await _userRepository.Update(user);
-
-            try
-            {
-                await _userRepository.Save();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!await Exists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _userRepository.Save();
 
             return NoContent();
         }
@@ -83,11 +70,8 @@ namespace MagicShop.UserAPI
 
         // DELETE: api/users/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<User>> DeleteUser(int id)
-        {
-            var user = _userRepository.GetById(id);
-            if (user == null)
-            {
+        public async Task<ActionResult<User>> DeleteUser(int id) {
+            if (_userRepository.GetById(id) == null) {
                 return NotFound();
             }
 

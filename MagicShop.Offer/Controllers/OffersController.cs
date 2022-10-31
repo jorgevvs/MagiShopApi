@@ -39,31 +39,17 @@ namespace MagicShop.OfferAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOffer(int id, Offer offer)
-        {
-            if (id != offer.Id)
-            {
+        public async Task<IActionResult> PutOffer(int id, Offer offer) {
+            if (id != offer.Id) {
                 return BadRequest();
+            }
+            
+            if (!OfferExists(id)) {
+                return NotFound();
             }
 
             _offerRepository.UpdateOffer(offer);
-
-            try
-            {
-                _offerRepository.Save();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!OfferExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            _offerRepository.Save();
             return NoContent();
         }
 
