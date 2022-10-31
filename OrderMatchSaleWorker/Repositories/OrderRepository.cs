@@ -42,11 +42,11 @@ namespace OrderMatchSaleWorker.Repositories
             var result = await _httpclient.PatchAsync($"match", byteContent);
         }
         
-        private HttpClient getHttpClient() {
+        private HttpClient getHttpClient(String uri) {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             var httpclient = new HttpClient(clientHandler);
-            httpclient.BaseAddress = new Uri(ORDERS_API_URI);
+            httpclient.BaseAddress = new Uri(uri);
             return httpclient;
         }
     }
